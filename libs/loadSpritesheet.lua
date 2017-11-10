@@ -1,11 +1,13 @@
 
 --[[
 	This function makes it easier to load and set up sprite sheets
-
-
 	by: Michael Binder Nov-2017
 ]]
 
+
+-- imagePath = path to the image
+-- cellWidth = width of one image cell
+-- cellHeight = height of one image cell
 function loadSpritesheet(imagePath, cellWidth, cellHeight)
 	local image = love.graphics.newImage(imagePath)
 	if image == nil then
@@ -39,6 +41,11 @@ function loadSpritesheet(imagePath, cellWidth, cellHeight)
 	end
 
 	frameCount = numOfCellsX * numOfCellsY
-
+	
+	
+	-- image: reference to the loaded image
+	-- frame: table of love's quads
+	-- frameNumber: table of frame numbers (eg. cell1 = 1, cell2 = 2 ... etc.)
+	-- frameCount: number of total frames in this image
 	return image, frame, frameNumber, frameCount
 end
